@@ -38,13 +38,13 @@ if (cardsInPlay[0] === cardsInPlay[1]) {
 var flipCard = function () {
 	var cardId = this.getAttribute("data-id");
 	console.log("User flipped " + cards[cardId].rank);
-	
+
 	cardsInPlay.push(cards[cardId].rank);
 	this.setAttribute("src", cards[cardId].cardImage);
-	
+
 	console.log(cards[cardId].cardImage);
 	console.log(cards[cardId].suit);
-	
+
 // Once player select 2 cards - see if it match or not
 
 if (cardsInPlay.length === 2){
@@ -65,6 +65,25 @@ for (var i = 0; i < cards.length; i++) {
 }
 };
 
+// Below is the Fisher-Yates algorithm for card shuffle
+
+// function shuffle(array) {
+//   var m = array.length, t, i;
+//
+//   // While there remain elements to shuffle…
+//   while (m) {
+//
+//     // Pick a remaining element…
+//     i = Math.floor(Math.random() * m--);
+//
+//     // And swap it with the current element.
+//     t = array[m];
+//     array[m] = array[i];
+//     array[i] = t;
+//   }
+// 
+//   return array;
+// }
 
 // Reset Game
 var resetGame = function () {
@@ -77,11 +96,3 @@ var resetGame = function () {
 
 createBoard();
 document.querySelector("button").addEventListener("click", resetGame);
-
-
-
-
-
-
-
-
